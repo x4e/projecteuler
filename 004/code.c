@@ -5,6 +5,7 @@
 #define ulong unsigned long
 
 #define base 10
+#define limit 999
 
 bool isPalindrome(ulong num) {
 	const int length = snprintf(NULL, 0, "%lu", num) + 1;
@@ -23,8 +24,16 @@ bool isPalindrome(ulong num) {
 }
 
 void main() {
-	printf("%d\n", isPalindrome(6006));
-	printf("%d\n", isPalindrome(60606));
-	printf("%d\n", isPalindrome(40506));
+	ulong largest = 0;
+	
+	for (ulong i1 = 0; i1 <= limit; i1++) {
+		for (ulong i2 = 0; i2 <= limit; i2++) {
+			ulong product = i1 * i2;
+			if (product > largest && isPalindrome(product)) {
+				largest = product;
+			}
+		}
+	}
+	printf("%d\n", largest);
 }
 
