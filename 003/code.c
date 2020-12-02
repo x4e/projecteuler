@@ -14,7 +14,6 @@ ulong largestPrime(ulong num) {
 		bool found = false;
 		for (ulong i = 2; i*i < num; i++) {
 			if (num % i == 0) {
-				printf("%lu: %lu\n", i, num);
 				if (i > largest) largest = i;
 				num = num / i;
 				found = true;
